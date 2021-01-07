@@ -8,8 +8,16 @@
 
     <%= f.fields_for :category do |c| %>
         <%= c.label :name %>
-        <%= c.text_field :name %>
+        <%= c.text_field :name %><br>
     <%end%>
+
+    <%= f.fields_for :supplies do |s| %>
+        <%= s.label "Supply name" %>
+        <%= s.text_field :name %>
+    <% end %>
+
+    <%= f.collection_check_boxes :supply_ids, Supply.all, :id, :name %>
+   
     <%= f.submit %>
 
 <% end %>
