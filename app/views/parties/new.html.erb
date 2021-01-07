@@ -5,6 +5,11 @@
     <%= f.text_field :name %>
     <%= f.label :date %>
     <%= f.date_field :date %>
+
+    <%= f.fields_for :category do |c| %>
+        <%= c.label :name %>
+        <%= c.text_field :name %>
+    <%end%>
     <%= f.submit %>
 
 <% end %>
