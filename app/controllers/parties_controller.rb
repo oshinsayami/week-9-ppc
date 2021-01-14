@@ -1,6 +1,10 @@
 class PartiesController < ApplicationController
     def index
-        @parties = Party.all
+        if params[:name] # here because they submitted a search?
+            @parties = Party.search_by_name(params[:name])
+        else
+            @parties = Party.order_by_budget
+        end
     end
 
     def new
